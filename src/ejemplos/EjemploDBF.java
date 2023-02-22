@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class EjemploDBF {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		// TODO Esbozo de método generado automáticamente
 		//Leer columnas de tabla dbf
 		//Sustituir esta ruta por el fichero local

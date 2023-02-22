@@ -20,7 +20,7 @@ public class EjemploEXCEL {
 	
 	public static void main(String[] args) {
 		// TODO Esbozo de método generado automáticamente
-		
+		 
 		//Sustituir esta ruta por el fichero local
 		String fichero = "C:\\Users\\Manuel\\Desktop\\CONVERSOR MAESTRO\\recursos de desarrollo\\librerias para el conversor\\excel\\archivos\\clientes.xls";
 

@@ -11,6 +11,7 @@ public class EjemploSQL {
 
 	public static void main(String[] args) {
 		// TODO Esbozo de método generado automáticamente
+		
 		String ipServidor = "TECNICO-PC";
 		String instancia = "GPBUSINESS";
 		String empresa = "02";
