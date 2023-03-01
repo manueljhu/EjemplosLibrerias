@@ -16,7 +16,7 @@ import modelo.*;
 public class EjemploLeerRelacionDBF {
 	
 	public static ArrayList<Almacen> almacenes;
-
+ 
 	public static void main(String[] args) {
 		almacenes = new ArrayList<>();
 		RelacionCampos relacionCampos = new RelacionCampos();

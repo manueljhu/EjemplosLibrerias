@@ -4,7 +4,7 @@ import java.util.Objects;
 
 
 public class Almacen {
-	private int id;
+	private int id; 
 	private String nom;
 	private String ser;
 	private String se2;
