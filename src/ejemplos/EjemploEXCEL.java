@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JOptionPane;
+
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -17,43 +19,36 @@ import org.apache.poi.sl.usermodel.Resources;
 import org.apache.poi.ss.usermodel.CellType;
 
 public class EjemploEXCEL {
-	
+
 	public static void main(String[] args) {
 		// TODO Esbozo de método generado automáticamente
-		 
-		//Sustituir esta ruta por el fichero local
-		String fichero = "C:\\Users\\Manuel\\Desktop\\CONVERSOR MAESTRO\\recursos de desarrollo\\librerias para el conversor\\excel\\archivos\\clientes.xls";
+
+		// Sustituir esta ruta por el fichero local
+		String fichero = "C:\\Users\\Pc\\Desktop\\prueba.xls";
+		
+		System.out.println("Valores columna nombre: \n");
+		leerDatosExcel(fichero, "Nombre");
 
 		ArrayList<String> columnas = devuelveColumnasExcel(fichero);
 
 		for (int i = 0; i < columnas.size(); i++) {
 			System.out.println(columnas.get(i));
 		}
-		
+
 		System.out.println("\nFin lectura de nombres de columna \n");
-		
+
 		int numeroDeFilas = devuleveNFilasExcel(fichero);
+
+		System.out.println("El fichero excel tiene " + numeroDeFilas + " filas.\n");
+
+		String valorColumna = devuelveValorColumna(fichero, 1, "Nombre");
+
+		System.out.println("El valor de la columna nombre en la fila 1 es: " + valorColumna + "\n");
+
 		
-		System.out.println("El fichero excel tiene "+numeroDeFilas+" filas.\n");
-		
-		String valorColumna = devuelveValorColumna(fichero, 1, "nombre");
-		
-		System.out.println("El valor de la columna nombre en la fila 1 es: "+valorColumna+"\n");
-		
-		
-		System.out.println("Valores columna nombre: \n");
-		leerDatosExcel(fichero, "nombre");
-		
-		
+
 	}
-	
-	public void setResourcesPath() {
-		
-	}
-	
-	
-	
-	
+
 	// FUNCION QUE DEVUELVE LOS NOMBRES DE COLUMNA DE UN EXCEL
 	public static ArrayList<String> devuelveColumnasExcel(String fichero) {
 		ArrayList<String> columnas = new ArrayList<>();
@@ -89,7 +84,7 @@ public class EjemploEXCEL {
 		return columnas;
 	}
 
-	// FUNCION QUE DEVUELVE EN NUMERO DE FILAS DE UN EXCEL
+	// FUNCION QUE DEVUELVE EL NUMERO DE FILAS DE UN EXCEL
 	public static int devuleveNFilasExcel(String fichero) {
 		int filas = 0;
 		InputStream excelStream = null;
@@ -136,20 +131,26 @@ public class EjemploEXCEL {
 			HSSFCell cell;
 			hssfRowCabecera = hssfSheet.getRow(0);
 			hssfRow = hssfSheet.getRow(fila);
-			for (int c = 0; c < hssfRow.getLastCellNum(); c++) {
-				if (hssfRowCabecera.getCell(c).getStringCellValue().equals(nombreColumna)) {
-					if (hssfRow.getCell(c) != null) {
-						hssfRow.getCell(c).setCellType(CellType.STRING);
-						valor = hssfRow.getCell(c).getStringCellValue();
+			
+				for (int c = 0; c < hssfRow.getLastCellNum(); c++) {
+					if (hssfRowCabecera.getCell(c).getStringCellValue().equals(nombreColumna)) {
+						if (hssfRow.getCell(c) != null) {
+							hssfRow.getCell(c).setCellType(CellType.STRING);
+							valor = hssfRow.getCell(c).getStringCellValue();
+						}
 					}
 				}
-			}
+			
 
 		} catch (FileNotFoundException fileNotFoundException) {
 			System.out.println("The file not exists (No se encontró el fichero): " + fileNotFoundException);
 		} catch (IOException ex) {
 			System.out.println("Error in file procesing (Error al procesar el fichero): " + ex);
-		} finally {
+		}  catch (NullPointerException npe) {
+			System.out.println("Existen valores vacios en celdas: "+npe);
+			//npe.printStackTrace();
+			JOptionPane.showMessageDialog(null, npe, "Error, formateando c:", JOptionPane.ERROR_MESSAGE);
+		}finally {
 			try {
 				excelStream.close();
 			} catch (IOException ex) {
@@ -166,10 +167,10 @@ public class EjemploEXCEL {
 
 	public static void leerDatosExcel(String rutaFichero, String columna) {
 		int numeroFilas = devuleveNFilasExcel(rutaFichero);
-		for (int i = 1; i < numeroFilas; i++) {
+		for (int i = 1; i <= numeroFilas; i++) {
 			String propiedadColumna = devuelveValorColumna(rutaFichero, i, columna);// REEMPLAZAR "NOMBRE
-																								// COLUMNA" POR EL
-																								// NOMBRE DE LA COLUMNA
+																					// COLUMNA" POR EL
+																					// NOMBRE DE LA COLUMNA
 			System.out.println(propiedadColumna);
 			// PARA GUARDAR LOS PARAMETROS DE UN OBJETO SERIA ALGO COMO LO SIGUIENTE:
 
