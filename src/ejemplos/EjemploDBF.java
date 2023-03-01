@@ -16,7 +16,7 @@ public class EjemploDBF {
 		// TODO Esbozo de método generado automáticamente
 		//Leer columnas de tabla dbf
 		//Sustituir esta ruta por el fichero local
-		String fichero = "C:\\Users\\Manuel\\Desktop\\CONVERSOR MAESTRO\\recursos de desarrollo\\librerias para el conversor\\dbf\\archivos\\productos.dbf";//Sustituye por la ruta donde se encuentra el fichero
+		String fichero = "C:\\Users\\Manuel\\Desktop\\prueba.dbf";//Sustituye por la ruta donde se encuentra el fichero
         Table table = new Table(new File(fichero));
         
         try {
@@ -47,7 +47,7 @@ public class EjemploDBF {
             for (int z = 0; z <= table2.getRecordCount(); z++) {
                 Record record = table2.getRecordAt(z);
                 if (record.isMarkedDeleted() != true) {
-                    System.out.println(record.getTypedValue("NOMBRE").toString()); //Sustituye por el nombre de la columna origen                                          
+                    System.out.println(record.getTypedValue("Nombre").toString()); //Sustituye por el nombre de la columna origen                                          
                 }
             }
 
