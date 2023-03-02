@@ -53,6 +53,68 @@ public class EjemploSQL {
 
 			System.out.println("Error al recuperar datos " + e);
 		}
+		
+		try {
+
+			Class.forName("net.sourceforge.jtds.jdbc.Driver");
+			cn = DriverManager.getConnection(urlConexionBBDD, usuario, contrasena);
+
+			
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		// SELECT
+		String sentencia2 = "DELETE FROM CLIENT WHERE nom='JONATHAN'";
+
+		try {
+
+			Statement st = cn.createStatement();
+			
+			st.executeUpdate(sentencia2);
+
+			
+
+			
+			st.close();
+			cn.close();
+			//// System.out.println("Desconectado");
+		} catch (Exception e) {
+
+			System.out.println("Error al recuperar datos " + e);
+		}
+		
+		try {
+
+			Class.forName("net.sourceforge.jtds.jdbc.Driver");
+			cn = DriverManager.getConnection(urlConexionBBDD, usuario, contrasena);
+
+			
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		// SELECT
+		String sentencia3 = "UPDATE CLIENT SET nom='VENTA CONTADO' WHERE nom='VENTA DIRECTA'";
+
+		try {
+
+			Statement st = cn.createStatement();
+			
+			st.executeUpdate(sentencia3);
+
+			
+
+			
+			st.close();
+			cn.close();
+			//// System.out.println("Desconectado");
+		} catch (Exception e) {
+
+			System.out.println("Error al recuperar datos " + e);
+		}
 	}
 
 }

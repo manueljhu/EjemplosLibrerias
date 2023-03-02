@@ -15,7 +15,7 @@ public class EjemploGuardarFicheroRelacion {
 	public static void main(String[] args) {
 		RelacionCampos relacionCampos = new RelacionCampos();
 
-		String fichero = "C:\\Users\\Manuel\\Desktop\\ejemplofichero.inv";
+		String fichero = "C:\\Users\\Pc\\Desktop\\ejemplofichero.inv";
 		String tipoOperacion = "ACTUALIZAR";
 		Boolean vaciarDestino = false;
 		String tipoOrigenDatos = "SQL";
@@ -39,7 +39,7 @@ public class EjemploGuardarFicheroRelacion {
 		relacionCampos.setTipoOperacion(tipoOperacion);
 		relacionCampos.setRelacionColumnas(rel);
 
-		guardarRelacion(fichero, relacionCampos);
+		//guardarRelacion(fichero, relacionCampos);
 
 		relacionCampos = leerRelacion(fichero, tipoOrigenDatos);
 
@@ -47,6 +47,7 @@ public class EjemploGuardarFicheroRelacion {
 		System.out.println("Tabla Origen: " + relacionCampos.getTablaOrigen());
 		System.out.println("Operacion destino: " + relacionCampos.getTipoOperacion());
 		System.out.println("Vaciar destino: " + relacionCampos.isVaciarDestino());
+		
 
 		for (int i = 0; i < relacionCampos.getRelacionColumnas().size(); i++) {
 			System.out.println("Columna origen: " + relacionCampos.getRelacionColumnas().get(i).getCampoOrigen()
@@ -158,7 +159,6 @@ public class EjemploGuardarFicheroRelacion {
 						case "VacDes:":
 							if (!valor.equals("")) {
 								relacionCampos.setVaciarDestino(Boolean.parseBoolean(valor));
-
 							}
 							break;
 						}
