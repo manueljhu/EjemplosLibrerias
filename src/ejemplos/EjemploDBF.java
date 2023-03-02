@@ -14,7 +14,7 @@ public class EjemploDBF {
 
 	public static void main(String[] args) { 
 		// TODO Esbozo de método generado automáticamente
-		//Leer columnas de tabla dbf
+		//Leer columnas de tabla dbf 
 		//Sustituir esta ruta por el fichero local
 		String fichero = "C:\\Users\\Manuel\\Desktop\\prueba.dbf";//Sustituye por la ruta donde se encuentra el fichero
         Table table = new Table(new File(fichero));

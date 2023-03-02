@@ -22,7 +22,7 @@ public class EjemploLeerRelacionDBF {
 		RelacionCampos relacionCampos = new RelacionCampos();
 		
 		String fichero = "C:\\Users\\Manuel\\Desktop\\prueba.dbf";
-		String tipoOperacion = "ACTUALIZAR";
+		String tipoOperacion = "ACTUALIZAR"; 
 		Boolean vaciarDestino = false;
 		String tipoOrigenDatos = "DBF";
 		String tablaOrigen = "TABLA_ORIGEN";
