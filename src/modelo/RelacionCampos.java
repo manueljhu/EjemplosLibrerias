@@ -12,7 +12,7 @@ public class RelacionCampos {
 
     public RelacionCampos() {
         relacionColumnas = new ArrayList<>();
-    }        
+    }         
 
    
 	public String getTablaOrigen() {

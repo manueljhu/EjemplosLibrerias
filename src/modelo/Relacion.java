@@ -11,7 +11,7 @@ public class Relacion {
 
 	public Relacion(String campoOrigen, String campoDestino) {
 		this.campoOrigen = campoOrigen;
-		this.campoDestino = campoDestino;
+		this.campoDestino = campoDestino; 
 	}
 
 	public String getCampoOrigen() {

@@ -25,7 +25,7 @@ public class EjemploSQL {
 			Class.forName("net.sourceforge.jtds.jdbc.Driver");
 			cn = DriverManager.getConnection(urlConexionBBDD, usuario, contrasena);
 
-			JOptionPane.showMessageDialog(null, "ConexiÃ³n establecida correctamente.", "Aviso",
+			JOptionPane.showMessageDialog(null, "Conexión establecida correctamente.", "Aviso",
 					JOptionPane.INFORMATION_MESSAGE);
 
 		} catch (Exception e) {
